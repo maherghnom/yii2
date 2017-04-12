@@ -30,8 +30,7 @@ class Tag extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+            [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -44,8 +43,7 @@ class Tag extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+
         ];
     }
 
@@ -56,4 +54,11 @@ class Tag extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PostTag::className(), ['tag_id' => 'id']);
     }
+
+    public function relations()
+        {
+                 return array(
+                'post' => array(self::MANY_MANY, 'post', 'post_tag(tag_id, post_id)'),
+                );
+        }
 }

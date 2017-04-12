@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\models\Post;
+use frontend\models\Tag;
+
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Post */
@@ -20,6 +22,9 @@ use frontend\models\Post;
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'cat_id')->dropDownList($model->getCateg()) ?>
+
+    <?= $form->field($model, 'tag')->dropDownList($model->getTag()) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

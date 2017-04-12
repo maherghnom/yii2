@@ -5,6 +5,8 @@ namespace frontend\models;
 use Yii;
 use frontend\models\Category;
 use frontend\models\User;
+use frontend\models\Tag;
+
 
 /**
  * This is the model class for table "post".
@@ -54,6 +56,8 @@ class Post extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'cat_id' => 'Cat ID',
+            
+
         ];
     }
 
@@ -86,4 +90,15 @@ class Post extends \yii\db\ActiveRecord
         return Category::find()->select('name')->indexBy('id')->column();
     }
 
+     public function getTag()
+    {
+        return Tag::find()->select('name')->indexBy('id')->column();
+    }
+    public function relations()
+        {
+               
+                return array(
+                 'tag' => array(self::MANY_MANY, 'tag', 'post_tag(tag_id, post_id)'),
+                );
+        }
 }
