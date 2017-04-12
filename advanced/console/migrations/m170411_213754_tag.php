@@ -15,10 +15,6 @@ class m170411_213754_tag extends Migration
         $this->createTable('{{%tag}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
-
-            'created_at' => $this->integer()->notNull(),
-
-            'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
 
           $this->insert('tag',['name'=>'toyota']
