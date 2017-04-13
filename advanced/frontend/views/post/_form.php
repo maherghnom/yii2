@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\models\Post;
 use frontend\models\Tag;
+use frontend\models\PostTag;
+
 
 
 /* @var $this yii\web\View */
@@ -20,10 +22,10 @@ use frontend\models\Tag;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+ <?= $form->field($model, 'tag')->dropDownList($model->getTag() , array(     'multiple' => true, 'selected' => 'selected'))?>
 
     <?= $form->field($model, 'cat_id')->dropDownList($model->getCateg()) ?>
 
-    <?= $form->field($model, 'tag')->dropDownList($model->getTag()) ?>
 
 
     <div class="form-group">

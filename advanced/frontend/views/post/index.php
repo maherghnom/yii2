@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
@@ -32,7 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             ['attribute'=>'category','value'=>'cat.name',],
 
-            ['attribute'=>'tag','value'=>'tag.name',],
+            ['attribute'=>'tag','value'=> function($model) {
+                    return implode(', ', ArrayHelper::map($model->postTags, 'tag_id', 'tag.name'));
+                }],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

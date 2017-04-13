@@ -4,10 +4,13 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Post;
+use frontend\models\Tag;
 use frontend\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\models\PostTag;
+use yii\data\ActiveDataProvider;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -36,7 +39,9 @@ class PostController extends Controller
     public function actionIndex()
     {
         $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $dataProvider = new ActiveDataProvider([
+                'query' => Post::find()->with('postTags'),
+            ]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -69,6 +74,13 @@ class PostController extends Controller
         $model = new Post();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+             $request = Yii::$app->request->post('Post');
+               foreach ($request['tag'] as $tag_id) {
+                $newTag = new PostTag();
+                $newTag->post_id = $model->id;
+                $newTag->tag_id = $tag_id;
+                $newTag->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

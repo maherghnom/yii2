@@ -6,6 +6,8 @@ use Yii;
 use frontend\models\Category;
 use frontend\models\User;
 use frontend\models\Tag;
+use frontend\models\PostTag;
+
 
 
 /**
@@ -56,7 +58,7 @@ class Post extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'cat_id' => 'Cat ID',
-            
+            'tag_id' => 'TAG',
 
         ];
     }
@@ -82,7 +84,7 @@ class Post extends \yii\db\ActiveRecord
      */
     public function getPostTags()
     {
-        return $this->hasMany(PostTag::className(), ['post_id' => 'id']);
+        return $this->hasMany(PostTag::className(), ['post_id' => 'id'])->with('tag');
     }
 
      public function getCateg()
