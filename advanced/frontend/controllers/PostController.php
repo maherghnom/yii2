@@ -11,12 +11,15 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\models\PostTag;
 use yii\data\ActiveDataProvider;
+use yii\db\Query;
+
 
 /**
  * PostController implements the CRUD actions for Post model.
  */
 class PostController extends Controller
 {
+    public $dd;
     /**
      * @inheritdoc
      */
@@ -43,9 +46,13 @@ class PostController extends Controller
                 'query' => Post::find()->with('postTags'),
             ]);
 
+        $dataArray = Post::find()->select('title, description')
+        ->asArray()->all(); 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataArray' => $dataArray,
         ]);
     }
 
@@ -116,6 +123,15 @@ class PostController extends Controller
      */
     public function actionDelete($id)
     {
+           //$request = Yii::$app->request->delete('Post');
+       // DELETE FROM post_tag WHERE `post_id` = '$id'
+
+
+    (new Query)
+     ->createCommand()
+     ->delete('post_tag', ['post_id' => $id])
+     ->execute();
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
