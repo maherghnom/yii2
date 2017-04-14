@@ -22,7 +22,7 @@ use frontend\models\PostTag;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
- <?= $form->field($model, 'tag')->dropDownList($model->getTag() , array(     'multiple' => true, 'selected' => 'selected'))?>
+ <?= $form->field($model, 'tag')->checkboxList($model->getTag() , array(     'multiple' => true, 'selected' => 'selected'))?>
 
     <?= $form->field($model, 'cat_id')->dropDownList($model->getCateg()) ?>
 
