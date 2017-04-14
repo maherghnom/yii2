@@ -43,7 +43,8 @@ class PostController extends Controller
     {
         $searchModel = new PostSearch();
         $dataProvider = $dataProvider = new ActiveDataProvider([
-                'query' => Post::find()->with('postTags'),
+                'query' => Post::find()->with('postTags')->orderBy(
+                    'id DESC'),
             ]);
 
         $dataArray = Post::find()->select('title, description')
@@ -64,7 +65,7 @@ class PostController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => Post::find()->where(['id'=>$id])->with('cat')->one(),
         ]);
     }
 

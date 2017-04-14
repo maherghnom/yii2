@@ -58,7 +58,7 @@ class Post extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'cat_id' => 'Cat ID',
-            'tag_id' => 'TAG',
+            'name' => 'TAG',
 
         ];
     }
@@ -70,6 +70,9 @@ class Post extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+
+
 
     /**
      * @return \yii\db\ActiveQuery

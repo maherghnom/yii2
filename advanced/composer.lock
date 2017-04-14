@@ -4,56 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aafe8d29987da5b06fe200bf9c2122b0",
+    "content-hash": "f08e0abea71b3609f00e1c90c38a4e7d",
     "packages": [
-        {
-            "name": "arogachev/yii2-many-to-many",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/arogachev/yii2-many-to-many.git",
-                "reference": "0c277acbfabf7675aeec213dd56e8232b5bc73cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/arogachev/yii2-many-to-many/zipball/0c277acbfabf7675aeec213dd56e8232b5bc73cf",
-                "reference": "0c277acbfabf7675aeec213dd56e8232b5bc73cf",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "require-dev": {
-                "phpunit/dbunit": "~1.4",
-                "phpunit/phpunit": "~5.2"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "arogachev\\ManyToMany\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Alexey Rogachev",
-                    "email": "arogachev90@gmail.com"
-                }
-            ],
-            "description": "Many-to-many ActiveRecord relation for Yii 2 framework",
-            "homepage": "https://github.com/arogachev/yii2-many-to-many",
-            "keywords": [
-                "Behavior",
-                "many-to-many",
-                "relation",
-                "validator",
-                "yii2"
-            ],
-            "time": "2016-03-04T10:40:29+00:00"
-        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.7",
@@ -1051,16 +1003,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1041,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26T22:05:40+00:00"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

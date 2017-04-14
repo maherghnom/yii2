@@ -33,10 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'title',
             'description',
-            'cat_id',
+            ['attribute'=>'category',
+            'value'=> function($data) {
+                return $data->cat->name;
+            }],
             
+       
 
         ],
+
+       
+
     ]) ?>
 
 </div>
